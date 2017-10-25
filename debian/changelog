@@ -1,4 +1,4 @@
-qttools-opensource-src (5.9.1-2) unstable; urgency=medium
+qttools-opensource-src (5.9.1+ubports) xenial; urgency=medium
 
   * Update symbols files from the current build logs.
   * Upload to unstable.
