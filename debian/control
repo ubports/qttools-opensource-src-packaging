@@ -1,23 +1,24 @@
 Source: qttools-opensource-src
 Section: libs
 Priority: optional
-Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Sune Vuorela <debian@pusling.com>,
            Pino Toscano <pino@debian.org>,
-           Lisandro Damian Nicanor Perez Meyer <lisandro@debian.org>,
+           Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>,
            Felix Geyer <fgeyer@debian.org>,
            Timo Jyrinki <timo@debian.org>,
            Dmitry Shachnev <mitya57@debian.org>
-Build-Depends: debhelper (>= 9.20160114~),
-               libqt5opengl5-dev (>= 5.9.1+dfsg~),
-               libqt5sql5-sqlite (>= 5.9.1+dfsg~),
-               libqt5webkit5-dev (>= 5.9.0+dfsg~) [!m68k !sh4],
+Build-Depends: debhelper (>= 9),
+               libqt5opengl5-dev (>= 5.9.3~),
+               libqt5sql5-sqlite (>= 5.9.3~),
+               libqt5webkit5-dev (>= 5.9.2~) [!alpha !m68k !sh4],
                pkg-kde-tools,
-               qtbase5-private-dev (>= 5.9.1+dfsg~),
-               qtdeclarative5-private-dev (>= 5.9.1~),
+               qtbase5-private-dev (>= 5.9.3~),
+               qtdeclarative5-private-dev (>= 5.9.3~),
                zlib1g-dev
-Build-Depends-Indep: qtbase5-doc-html (>= 5.6.0~)
-Standards-Version: 4.0.0
+Build-Depends-Indep: qtbase5-doc-html (>= 5.6.0~) <!nodoc>
+Standards-Version: 4.1.2
 Homepage: https://www.qt.io/developers/
 Vcs-Git: https://anonscm.debian.org/git/pkg-kde/qt/qttools.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-kde/qt/qttools.git
@@ -48,6 +49,7 @@ Description: Qt 5 Designer components module
 
 Package: qdbus-qt5
 Architecture: any
+Multi-Arch: foreign
 Section: utils
 Depends: qtchooser, ${misc:Depends}, ${shlibs:Depends}
 Description: Qt 5 D-Bus tool
@@ -79,6 +81,8 @@ Depends: libqt5designer5 (= ${binary:Version}),
          qtbase5-dev,
          qttools5-dev-tools (= ${binary:Version}),
          ${misc:Depends}
+Breaks: qttools5-dev-tools (<< 5.9.2-3~)
+Replaces: qttools5-dev-tools (<< 5.9.2-3~)
 Description: Qt 5 tools development files
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -101,10 +105,9 @@ Description: Qt 5 tools private development files
 
 Package: qttools5-dev-tools
 Architecture: any
-Multi-Arch: same
+Multi-Arch: foreign
 Section: devel
-Depends: qtchooser, ${misc:Depends}, ${shlibs:Depends}
-Recommends: libqt5sql5-sqlite
+Depends: libqt5sql5-sqlite, qtchooser, ${misc:Depends}, ${shlibs:Depends}
 Breaks: qtbase5-dev-tools (<< 5.6.0~), qttools5-dev (<< 5.5.0-2~)
 Replaces: qtbase5-dev-tools (<< 5.6.0~), qttools5-dev (<< 5.5.0-2~)
 Description: Qt 5 development tools
@@ -133,7 +136,6 @@ Description: Qt 5 tools examples
  This package contains examples of the Qt 5 tools module.
 
 Package: qttools5-doc
-Priority: extra
 Architecture: all
 Section: doc
 Depends: ${misc:Depends}
@@ -147,7 +149,6 @@ Description: Qt 5 tools documentation
  and binaries.
 
 Package: qttools5-doc-html
-Priority: extra
 Architecture: all
 Section: doc
 Depends: ${misc:Depends}

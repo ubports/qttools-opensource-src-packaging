@@ -11,15 +11,10 @@ export LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
 export QT_SELECT := qt5
 
 # Archs that do not build depend on QtWebkit do not ship qwebview.
-no_qwebview_archs := sh4 m68k
+no_qwebview_archs := alpha sh4 m68k
 
 %:
-	dh $@ --with pkgkde_symbolshelper --parallel
-
-# We override qmake until https://bugreports.qt.io/browse/QTBUG-30735
-# gets solved (FTBFS with -nocache).
-override_dh_auto_configure:
-	qmake 
+	dh $@ --with pkgkde_symbolshelper
 
 override_dh_auto_clean:
 	dh_auto_clean
@@ -61,6 +56,12 @@ endif
 		debian/qttools5-dev-tools/usr/share/pixmaps/designer-qt5.png
 	install -D -p -m0644 src/linguist/linguist/images/icons/linguist-128-32.png \
 		debian/qttools5-dev-tools/usr/share/pixmaps/linguist-qt5.png
+
+override_dh_link:
+	dh_link
+	ls debian/qttools5-dev-tools/usr/lib/qt5/bin | xargs -t -I {} \
+		dh_link -pqttools5-dev-tools usr/lib/qt5/bin/{} usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/{}
+	dh_link -pqdbus-qt5 usr/lib/qt5/bin/qdbus usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/qdbus
 
 override_dh_strip:
 	dh_strip -pqttools5-examples --dbgsym-migration='qttools5-examples-dbg (<< 5.7.1-1~)'

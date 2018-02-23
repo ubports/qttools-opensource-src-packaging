@@ -132,6 +132,9 @@ usr/lib/*/cmake/Qt5Designer/Qt5DesignerConfigVersion.cmake
 usr/lib/*/cmake/Qt5Help/Qt5HelpConfig.cmake
 usr/lib/*/cmake/Qt5Help/Qt5HelpConfigExtras.cmake
 usr/lib/*/cmake/Qt5Help/Qt5HelpConfigVersion.cmake
+usr/lib/*/cmake/Qt5LinguistTools/Qt5LinguistToolsConfig.cmake
+usr/lib/*/cmake/Qt5LinguistTools/Qt5LinguistToolsConfigVersion.cmake
+usr/lib/*/cmake/Qt5LinguistTools/Qt5LinguistToolsMacros.cmake
 usr/lib/*/cmake/Qt5UiPlugin/Qt5UiPluginConfig.cmake
 usr/lib/*/cmake/Qt5UiPlugin/Qt5UiPluginConfigVersion.cmake
 usr/lib/*/cmake/Qt5UiTools/Qt5UiToolsConfig.cmake

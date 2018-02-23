@@ -1,4 +1,55 @@
-qttools-opensource-src (5.9.1+ubports) xenial; urgency=medium
+qttools-opensource-src (5.9.3+ubports4) xenial; urgency=medium
+
+  * Import 5.9.3 to ubports
+
+ -- Dan Chapman <dan@ubports.com>  Fri, 23 Feb 2018 15:21:07 +0000
+
+qttools-opensource-src (5.9.3-0ubuntu3) bionic; urgency=medium
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * Do not override dh_auto_configure anymore.
+    Require debhelper >= 10.9.2~ (Closes: #880937).
+
+  [ Dmitry Shachnev ]
+  * Make qttools5-dev-tools depend on libqt5sql5-sqlite, it is needed by
+    qhelpgenerator and Qt Assistant.
+
+  [ Simon Quigley ]
+  * New upstream release.
+  * Update Standards-version to 4.1.2, no changes needed.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 30 Nov 2017 22:59:30 -0600
+
+qttools-opensource-src (5.9.2-3) unstable; urgency=medium
+
+  * Move Qt5LinguistTools*.cmake from qttools5-dev-tools to qttools5-dev.
+  * Re-enable qtwebkit support again.
+  * Upload to unstable.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 27 Oct 2017 00:35:11 +0300
+
+qttools-opensource-src (5.9.2-2) experimental; urgency=medium
+
+  * Update for Qt binaries location change in qtbase 5.9.2+dfsg-3.
+    - Update .install files for qttools5-dev-tools and qdbus-qt5.
+    - Make these packages Multi-Arch: foreign.
+    - Provide compatibility symlinks for the old location.
+    - Bump qtbase5-dev build-dependency to 5.9.2+dfsg-3.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 20 Oct 2017 13:42:25 +0300
+
+qttools-opensource-src (5.9.2-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Temporarily disable webkit support.
+  * Bump Qt build-dependencies to 5.9.2.
+  * Update symbols files from buildds’ logs.
+  * Update debhelper compatibility level to 10.
+  * Bump Standards-Version to 4.1.1, stop using deprecated Priority: extra.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Wed, 18 Oct 2017 17:35:11 +0300
+
+qttools-opensource-src (5.9.1-2) unstable; urgency=medium
 
   * Update symbols files from the current build logs.
   * Upload to unstable.

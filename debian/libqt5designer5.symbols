@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.9.1 amd64 i386
+# SymbolsHelper-Confirmed: 5.9.1 amd64 arm64 armel armhf hppa hurd-i386 i386 kfreebsd-i386 m68k mips mipsel powerpcspe sh4 x32
 libQt5Designer.so.5 libqt5designer5 #MINVER#
 * Build-Depends-Package: qttools5-dev
  Qt_5.0@Qt_5.0 5.6.0~beta
@@ -2765,7 +2765,6 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  _ZN7DomTimeC2Ev@Qt_5 5.6.0~beta
  _ZN7DomTimeD1Ev@Qt_5 5.6.0~beta
  _ZN7DomTimeD2Ev@Qt_5 5.6.0~beta
- (optional=templinst|arch=arm64 hppa sh4 x32)_ZN7QObject7connectIMS_FvPS_EM37QDesignerAbstractPropertySheetFactoryFvS1_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE@Qt_5 5.6.0~rc
  _ZN8DomBrush15setElementColorEP8DomColor@Qt_5 5.6.0~beta
  _ZN8DomBrush16takeElementColorEv@Qt_5 5.6.0~beta
  _ZN8DomBrush17setElementTextureEP11DomProperty@Qt_5 5.6.0~beta
@@ -3601,7 +3600,7 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  _ZNK9DomWidget5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
  (optional=templinst)_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag@Qt_5 5.6.0~beta
  (optional=templinst|subst)_ZSt17__rotate_adaptiveIPiS0_{ssize_t}ET_S1_S1_S1_T1_S2_T0_S2_@Qt_5 5.6.0~beta
- (optional=templinst|arch=i386 powerpc)_ZSt4swapIN8QVariant7PrivateEENSt9enable_ifIXsrSt6__and_IJSt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SG_@Qt_5 5.9.1
+ (optional=templinst|arch=armel armhf hurd-i386 i386 kfreebsd-i386 m68k mips mipsel powerpc powerpcspe)_ZSt4swapIN8QVariant7PrivateEENSt9enable_ifIXsrSt6__and_IJSt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SG_@Qt_5 5.9.1
  _ZTI12QFormBuilder@Qt_5 5.6.0~beta
  _ZTI12QTextBuilder@Qt_5 5.6.0~beta
  _ZTI13QDesignerMenu@Qt_5 5.6.0~beta
