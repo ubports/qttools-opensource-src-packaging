@@ -14,7 +14,12 @@ export QT_SELECT := qt5
 no_qwebview_archs := alpha sh4 m68k
 
 %:
-	dh $@ --with pkgkde_symbolshelper
+	dh $@ --with pkgkde_symbolshelper --parallel
+
+# We override qmake until https://bugreports.qt.io/browse/QTBUG-30735
+# gets solved (FTBFS with -nocache).
+override_dh_auto_configure:
+	qmake 
 
 override_dh_auto_clean:
 	dh_auto_clean
