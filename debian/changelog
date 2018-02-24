@@ -1,4 +1,4 @@
-qttools-opensource-src (5.9.3+ubports4) xenial; urgency=medium
+qttools-opensource-src (5.9.3-0ubports4) xenial; urgency=medium
 
   * Import 5.9.3 to ubports
 

@@ -17,7 +17,7 @@ Build-Depends: debhelper (>= 9),
                qtbase5-private-dev (>= 5.9.3~),
                qtdeclarative5-private-dev (>= 5.9.3~),
                zlib1g-dev
-Build-Depends-Indep: qtbase5-doc-html (>= 5.6.0~) <!nodoc>
+Build-Depends-Indep: qtbase5-doc-html <!nodoc>
 Standards-Version: 4.1.2
 Homepage: https://www.qt.io/developers/
 Vcs-Git: https://anonscm.debian.org/git/pkg-kde/qt/qttools.git
