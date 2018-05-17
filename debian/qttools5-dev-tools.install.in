@@ -1,4 +1,3 @@
-usr/lib/qt5/bin/assistant
 usr/lib/qt5/bin/designer
 usr/lib/qt5/bin/lconvert
 usr/lib/qt5/bin/linguist
@@ -29,6 +28,5 @@ usr/share/qt5/phrasebooks/polish.qph
 usr/share/qt5/phrasebooks/russian.qph
 usr/share/qt5/phrasebooks/spanish.qph
 usr/share/qt5/phrasebooks/swedish.qph
-debian/desktop/assistant-qt5.desktop usr/share/applications/
 debian/desktop/designer-qt5.desktop usr/share/applications/
 debian/desktop/linguist-qt5.desktop usr/share/applications/

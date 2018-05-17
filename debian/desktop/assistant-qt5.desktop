@@ -83,5 +83,5 @@ Icon=assistant-qt5
 Terminal=false
 Type=Application
 Categories=Qt;Development;Documentation;
-Exec=/usr/bin/qtchooser -run-tool=assistant -qt=qt5
+Exec=/usr/lib/qt5/bin/assistant
 X-KDE-StartupNotify=true

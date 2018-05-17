@@ -80,5 +80,5 @@ Terminal=false
 Type=Application
 MimeType=application/x-linguist;
 Categories=Qt;Development;Translation;
-Exec=/usr/bin/qtchooser -run-tool=linguist -qt=qt5
+Exec=/usr/lib/qt5/bin/linguist %F
 X-KDE-StartupNotify=true

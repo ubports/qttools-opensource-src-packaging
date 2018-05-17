@@ -1,10 +1,42 @@
-qttools-opensource-src (5.9.3-0ubports4) xenial; urgency=medium
+qttools-opensource-src (5.9.5-0ubports1) xenial; urgency=medium
 
-  * Import 5.9.3 to ubports
+  * New upstream release.
+  * Bump Qt build-dependencies to 5.9.5.
+  * Update Vcs fields for migration to salsa.debian.org.
 
- -- Dan Chapman <dan@ubports.com>  Fri, 23 Feb 2018 15:21:07 +0000
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Sat, 14 Apr 2018 10:38:13 +0300
+
+qttools-opensource-src (5.9.4-0ubuntu1) bionic; urgency=medium
+
+  * New upstream release.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 25 Feb 2018 00:11:46 -0600
+
+qttools-opensource-src (5.9.2-6) unstable; urgency=medium
+
+  * Update no_qwebview_archs: remove alpha and sh4, and add sparc64.
+  * Bump copyright years for The Qt Company in debian/copyright.
+  * Regenerate the internal assistant.qch during build (closes: #885484).
+  * Bump Standards-Version to 4.1.3, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 19 Jan 2018 18:32:41 +0300
+
+qttools-opensource-src (5.9.2-5) unstable; urgency=medium
+
+  * Split Assistant into its own package, qt5-assistant (closes: #854123).
+  * Bump Standards-Version to 4.1.2, no changes needed.
+  * Fix Exec lines in desktop files to run the tools directly.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 17 Dec 2017 12:51:34 +0300
 
 qttools-opensource-src (5.9.3-0ubuntu3) bionic; urgency=medium
+
+  * New upstream release.
+  * Update Standards-version to 4.1.2, no changes needed.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 30 Nov 2017 22:59:30 -0600
+
+qttools-opensource-src (5.9.2-4) unstable; urgency=medium
 
   [ Lisandro Damián Nicanor Pérez Meyer ]
   * Do not override dh_auto_configure anymore.
@@ -14,11 +46,7 @@ qttools-opensource-src (5.9.3-0ubuntu3) bionic; urgency=medium
   * Make qttools5-dev-tools depend on libqt5sql5-sqlite, it is needed by
     qhelpgenerator and Qt Assistant.
 
-  [ Simon Quigley ]
-  * New upstream release.
-  * Update Standards-version to 4.1.2, no changes needed.
-
- -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 30 Nov 2017 22:59:30 -0600
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 03 Dec 2017 13:28:41 +0300
 
 qttools-opensource-src (5.9.2-3) unstable; urgency=medium
 

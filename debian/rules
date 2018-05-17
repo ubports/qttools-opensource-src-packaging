@@ -11,10 +11,10 @@ export LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
 export QT_SELECT := qt5
 
 # Archs that do not build depend on QtWebkit do not ship qwebview.
-no_qwebview_archs := alpha sh4 m68k
+no_qwebview_archs := m68k sparc64
 
 %:
-	dh $@ --with pkgkde_symbolshelper --parallel
+	dh $@ --parallel --with pkgkde_symbolshelper
 
 # We override qmake until https://bugreports.qt.io/browse/QTBUG-30735
 # gets solved (FTBFS with -nocache).
@@ -27,6 +27,7 @@ override_dh_auto_clean:
 	rm -fv debian/qttools5-dev-tools.install
 
 override_dh_auto_build-indep:
+	# Build qdoc, qhelpgenerator and qtattributionsscanner tools
 	cd src; qmake
 	dh_auto_build -- -Csrc sub-qdoc sub-qtattributionsscanner
 	cd src/assistant; qmake
@@ -34,6 +35,15 @@ override_dh_auto_build-indep:
 	cd src/qdoc; qmake
 	cd src/assistant/help; qmake
 	dh_auto_build -- docs
+
+#ifeq ($(DEB_HOST_ARCH),$(DEB_BUILD_ARCH))
+#override_dh_auto_build-arch: build-doc-tools
+#	# Rebuild the internal assistant.qch which is used as a resource
+#	cd src/assistant/assistant/doc/internal; qmake
+#	dh_auto_build -- -Csrc/assistant/assistant/doc/internal docs
+#	mv doc/assistant.qch src/assistant/assistant/assistant.qch
+#	dh_auto_build
+#endif
 
 override_dh_auto_install-arch:
 	dh_auto_install
@@ -56,7 +66,7 @@ endif
 	dh_install --fail-missing
 
 	install -D -p -m0644 src/assistant/assistant/images/assistant-128.png \
-		debian/qttools5-dev-tools/usr/share/pixmaps/assistant-qt5.png
+		debian/qt5-assistant/usr/share/pixmaps/assistant-qt5.png
 	install -D -p -m0644 src/designer/src/designer/images/designer.png \
 		debian/qttools5-dev-tools/usr/share/pixmaps/designer-qt5.png
 	install -D -p -m0644 src/linguist/linguist/images/icons/linguist-128-32.png \
@@ -67,6 +77,7 @@ override_dh_link:
 	ls debian/qttools5-dev-tools/usr/lib/qt5/bin | xargs -t -I {} \
 		dh_link -pqttools5-dev-tools usr/lib/qt5/bin/{} usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/{}
 	dh_link -pqdbus-qt5 usr/lib/qt5/bin/qdbus usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/qdbus
+	dh_link -pqt5-assistant usr/lib/qt5/bin/assistant usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/assistant
 
 override_dh_strip:
 	dh_strip -pqttools5-examples --dbgsym-migration='qttools5-examples-dbg (<< 5.7.1-1~)'

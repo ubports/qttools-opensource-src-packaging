@@ -10,18 +10,18 @@ Uploaders: Sune Vuorela <debian@pusling.com>,
            Timo Jyrinki <timo@debian.org>,
            Dmitry Shachnev <mitya57@debian.org>
 Build-Depends: debhelper (>= 9),
-               libqt5opengl5-dev (>= 5.9.3~),
-               libqt5sql5-sqlite (>= 5.9.3~),
-               libqt5webkit5-dev (>= 5.9.0+dfsg~) [!alpha !m68k !sh4],
+               libqt5opengl5-dev (>= 5.9.5+dfsg~),
+               libqt5sql5-sqlite (>= 5.9.5+dfsg~),
+               libqt5webkit5-dev (>= 5.9.5~) [!m68k !sh4],
                pkg-kde-tools,
-               qtbase5-private-dev (>= 5.9.3~),
-               qtdeclarative5-private-dev (>= 5.9.3~),
+               qtbase5-private-dev (>= 5.9.5~),
+               qtdeclarative5-private-dev (>= 5.9.5~),
                zlib1g-dev
-Build-Depends-Indep: qtbase5-doc-html <!nodoc>
-Standards-Version: 4.1.2
+Build-Depends-Indep: qtbase5-doc-html
+Standards-Version: 4.1.3
 Homepage: https://www.qt.io/developers/
-Vcs-Git: https://anonscm.debian.org/git/pkg-kde/qt/qttools.git
-Vcs-Browser: https://anonscm.debian.org/cgit/pkg-kde/qt/qttools.git
+Vcs-Git: https://salsa.debian.org/qt-kde-team/qt/qttools.git
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/qt/qttools
 
 Package: libqt5designer5
 Architecture: any
@@ -107,7 +107,11 @@ Package: qttools5-dev-tools
 Architecture: any
 Multi-Arch: foreign
 Section: devel
-Depends: libqt5sql5-sqlite, qtchooser, ${misc:Depends}, ${shlibs:Depends}
+Depends: libqt5sql5-sqlite,
+         qt5-assistant (= ${binary:Version}),
+         qtchooser,
+         ${misc:Depends},
+         ${shlibs:Depends}
 Breaks: qtbase5-dev-tools (<< 5.6.0~), qttools5-dev (<< 5.5.0-2~)
 Replaces: qtbase5-dev-tools (<< 5.6.0~), qttools5-dev (<< 5.5.0-2~)
 Description: Qt 5 development tools
@@ -117,11 +121,25 @@ Description: Qt 5 development tools
  This package contains a set of applications to browse the documentation,
  translate applications, generate help files and other stuff that
  helps in Qt development. These tools are among others:
-  * assistant
   * designer
   * linguist
   * pixeltool
   * qdbusviewer
+
+Package: qt5-assistant
+Architecture: any
+Multi-Arch: foreign
+Section: devel
+Depends: libqt5sql5-sqlite, qtchooser, ${misc:Depends}, ${shlibs:Depends}
+Suggests: qt5-doc
+Breaks: qttools5-dev-tools (<< 5.9.4~)
+Replaces: qttools5-dev-tools (<< 5.9.4~)
+Description: Qt 5 Assistant
+ Qt is a cross-platform C++ application framework. Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ Qt Assistant is a tool for viewing on-line documentation in Qt help file
+ format.
 
 Package: qttools5-examples
 Architecture: any
